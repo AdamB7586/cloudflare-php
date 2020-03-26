@@ -66,6 +66,24 @@ class FirewallSettings implements API
         }
         return false;
     }
+    
+    /**
+     * Gets the Privacy Pass feature for a zone.
+     *
+     * @param string $zoneID The ID of the zone
+     * @return string|false
+     */
+    public function getPrivacyPassSetting(string $zoneID)
+    {
+        $return = $this->adapter->get(
+            'zones/' . $zoneID . '/settings/privacy_pass'
+        );
+        $body = json_decode($return->getBody());
+        if (isset($body->result)) {
+            return $body->result->value;
+        }
+        return false;
+    }
 
     /**
      * Update the Security Level setting for the zone
@@ -129,6 +147,28 @@ class FirewallSettings implements API
         $body = json_decode($return->getBody());
         if (isset($body->success) && $body->success == true) {
             return true;
+        }
+        return false;
+    }
+    
+    /**
+     * Update the Privacy Pass setting for the zone
+     *
+     * @param string $zoneID The ID of the zone
+     * @param string $value The value of the zone setting
+     * @return bool
+     */
+    public function updatePrivacyPassSetting(string $zoneID, string $value)
+    {
+        $return = $this->adapter->patch(
+            'zones/' . $zoneID . '/settings/privacy_pass',
+            [
+                'value' => $value,
+            ]
+        );
+        $body = json_decode($return->getBody());
+        if (isset($body->success)) {
+            return $body->success;
         }
         return false;
     }

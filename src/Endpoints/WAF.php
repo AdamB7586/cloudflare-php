@@ -5,7 +5,6 @@
  * Date: 23/10/2017
  * Time: 11:17
  */
-
 namespace Cloudflare\API\Endpoints;
 
 use Cloudflare\API\Adapter\Adapter;
@@ -20,6 +19,20 @@ class WAF implements API
     public function __construct(Adapter $adapter)
     {
         $this->adapter = $adapter;
+    }
+    
+    public function getWAFSetting(string $zoneID)
+    {
+        $return = $this->adapter->get(
+            'zones/' . $zoneID . '/settings/waf'
+        );
+        $body = json_decode($return->getBody());
+
+        if (isset($body->result)) {
+            return $body->result->value;
+        }
+
+        return false;
     }
 
     public function getPackages(
@@ -99,6 +112,25 @@ class WAF implements API
 
         return $this->body->result;
     }
+    
+    public function updateWAFSetting(
+        string $zoneID,
+        string $value
+    ) {
+        $waf = $this->adapter->patch(
+            'zones/' . $zoneID . '/settings/waf',
+            [
+                'value' => $value,
+            ]
+        );
+        $body = json_decode($waf->getBody());
+
+        if (isset($body->success)) {
+            return $body->success;
+        }
+
+        return false;
+    }
 
     public function updateRule(
         string $zoneID,
@@ -156,7 +188,9 @@ class WAF implements API
         string $packageID,
         string $groupID
     ): \stdClass {
-        $user = $this->adapter->get('zones/' . $zoneID . '/firewall/waf/packages/' . $packageID . '/groups/' . $groupID);
+        $user = $this->adapter->get(
+            'zones/' . $zoneID . '/firewall/waf/packages/' . $packageID . '/groups/' . $groupID
+        );
         $this->body = json_decode($user->getBody());
 
         return $this->body->result;
@@ -167,7 +201,7 @@ class WAF implements API
         string $packageID,
         string $groupID,
         string $status
-    ): \stdClass {
+    ) {
         $query = [
             'mode' => $status
         ];

@@ -59,6 +59,25 @@ class FirewallSettingsTest extends TestCase
         $this->assertEquals('on', $result);
     }
 
+    public function testGetPrivacyPassSetting()
+    {
+        $response = $this->getPsr7JsonResponseForFixture('Endpoints/getPrivacyPassSetting.json');
+
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock->method('get')->willReturn($response);
+
+        $mock->expects($this->once())
+            ->method('get')
+            ->with(
+                $this->equalTo('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/settings/privacy_pass')
+            );
+
+        $firewallSettingsMock = new \Cloudflare\API\Endpoints\FirewallSettings($mock);
+        $result = $firewallSettingsMock->getPrivacyPassSetting('c2547eb745079dac9320b638f5e225cf483cc5cfdda41');
+
+        $this->assertEquals('on', $result);
+    }
+
     public function testUpdateSecurityLevelSetting()
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updateSecurityLevelSetting.json');
@@ -115,6 +134,26 @@ class FirewallSettingsTest extends TestCase
 
         $firewallSettingsMock = new \Cloudflare\API\Endpoints\FirewallSettings($mock);
         $result = $firewallSettingsMock->updateBrowserIntegrityCheckSetting('c2547eb745079dac9320b638f5e225cf483cc5cfdda41', 'on');
+
+        $this->assertTrue($result);
+    }
+
+    public function testUpdatePrivacyPassSetting()
+    {
+        $response = $this->getPsr7JsonResponseForFixture('Endpoints/updatePrivacyPassSetting.json');
+
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock->method('patch')->willReturn($response);
+
+        $mock->expects($this->once())
+            ->method('patch')
+            ->with(
+                $this->equalTo('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/settings/privacy_pass'),
+                $this->equalTo(['value' => 'on'])
+            );
+
+        $firewallSettingsMock = new \Cloudflare\API\Endpoints\FirewallSettings($mock);
+        $result = $firewallSettingsMock->updatePrivacyPassSetting('c2547eb745079dac9320b638f5e225cf483cc5cfdda41', 'on');
 
         $this->assertTrue($result);
     }
