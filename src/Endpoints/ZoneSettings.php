@@ -53,7 +53,6 @@ class ZoneSettings implements API
         'WebSocket' => 'websockets',
         'PrivacyPass' => 'privacy_pass',
         'OpportunisticEncryption' => 'opportunistic_encryption',
-        'EmailObfuscation' => 'email_obfuscation',
         'EnableErrorPagesOn' => 'origin_error_page_pass_thru',
         'PrefetchPreload' => 'prefetch_preload',
         'TrueClientIP' => 'true_client_ip_header',
