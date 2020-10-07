@@ -172,4 +172,26 @@ class FirewallSettings implements API
         }
         return false;
     }
+    
+    /**
+     * Update the Bot management setting for the zone
+     *
+     * @param string $zoneID The ID of the zone
+     * @param boolean $value Enable or disable the bot management
+     * @return bool
+     */
+    public function updateBotManagementSetting(string $zoneID, bool $value)
+    {
+        $return = $this->adapter->put(
+            'zones/' . $zoneID . '/bot_management',
+            [
+                'fight_mode' => $value,
+            ]
+        );
+        $body = json_decode($return->getBody());
+        if (isset($body->success)) {
+            return $body->success;
+        }
+        return false;
+    }
 }

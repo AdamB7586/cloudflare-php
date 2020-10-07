@@ -25,7 +25,7 @@ class Origin
      */
     public function updateOriginSetting(string $zoneID, bool $value)
     {
-        $return = $this->adapter->patch(
+        $return = $this->adapter->put(
             'zones/' . $zoneID . '/origin_tls_client_auth/settings',
             [
                 'enabled' => $value,
