@@ -37,5 +37,4 @@ class Origin
         }
         return false;
     }
-    
 }
