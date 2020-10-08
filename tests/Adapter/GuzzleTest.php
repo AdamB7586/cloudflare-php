@@ -15,6 +15,7 @@ use Cloudflare\API\Adapter\Guzzle;
 use Cloudflare\API\Adapter\JSONException;
 use GuzzleHttp\Exception\RequestException;
 use Cloudflare\API\Adapter\ResponseException;
+use ReflectionClass;
 
 class GuzzleTest extends TestCase
 {
