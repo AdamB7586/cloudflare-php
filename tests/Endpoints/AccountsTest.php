@@ -10,7 +10,7 @@ class AccountsTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/listAccounts.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())

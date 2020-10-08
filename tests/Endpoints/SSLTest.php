@@ -6,7 +6,7 @@ class SSLTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getSSLSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -25,7 +25,7 @@ class SSLTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getSSLVerificationStatus.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -45,7 +45,7 @@ class SSLTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getHTTPSRedirectSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -64,7 +64,7 @@ class SSLTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getHTTPSRewritesSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -83,7 +83,7 @@ class SSLTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getHSTSSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())->method('get');
@@ -101,7 +101,7 @@ class SSLTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updateSSLSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $mock->expects($this->once())
@@ -121,7 +121,7 @@ class SSLTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updateHTTPSRedirectSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $mock->expects($this->once())
@@ -141,7 +141,7 @@ class SSLTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updateHTTPSRewritesSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $mock->expects($this->once())
@@ -161,7 +161,7 @@ class SSLTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updateSSLCertificatePackValidationMethod.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $mock->expects($this->once())
@@ -181,7 +181,7 @@ class SSLTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updateHSTSSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $mock->expects($this->once())->method('patch');

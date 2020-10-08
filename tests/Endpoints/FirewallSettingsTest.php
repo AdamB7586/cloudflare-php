@@ -6,7 +6,7 @@ class FirewallSettingsTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getSecurityLevelSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -25,7 +25,7 @@ class FirewallSettingsTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getChallengeTTLSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -44,7 +44,7 @@ class FirewallSettingsTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getBrowserIntegrityCheckSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -63,7 +63,7 @@ class FirewallSettingsTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getPrivacyPassSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -82,7 +82,7 @@ class FirewallSettingsTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updateSecurityLevelSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $mock->expects($this->once())
@@ -102,7 +102,7 @@ class FirewallSettingsTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updateChallengeTTLSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $mock->expects($this->once())
@@ -122,7 +122,7 @@ class FirewallSettingsTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updateBrowserIntegrityCheckSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $mock->expects($this->once())
@@ -142,7 +142,7 @@ class FirewallSettingsTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updatePrivacyPassSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $mock->expects($this->once())

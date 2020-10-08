@@ -16,7 +16,7 @@ class WAFTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getWAFSetting.json');
 
-        $mock = $this->getMockBuilder(Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())->method('get');
@@ -31,7 +31,7 @@ class WAFTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/listPackages.json');
 
-        $mock = $this->getMockBuilder(Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -62,7 +62,7 @@ class WAFTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getPackageInfo.json');
 
-        $mock = $this->getMockBuilder(Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -82,7 +82,7 @@ class WAFTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/listPackageRules.json');
 
-        $mock = $this->getMockBuilder(Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -113,7 +113,7 @@ class WAFTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getPackageRuleInfo.json');
 
-        $mock = $this->getMockBuilder(Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -133,7 +133,7 @@ class WAFTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updateWAFSetting.json');
 
-        $mock = $this->getMockBuilder(Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $mock->expects($this->once())
@@ -153,7 +153,7 @@ class WAFTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updatePackageRule.json');
 
-        $mock = $this->getMockBuilder(Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $details = [
@@ -178,11 +178,11 @@ class WAFTest extends TestCase
         $this->assertEquals('f939de3be84e66e757adcdcb87908023', $waf->getBody()->result->id);
     }
 
-    public function getGroups()
+    public function testGetGroups()
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/listPackageGroups.json');
 
-        $mock = $this->getMockBuilder(Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -213,7 +213,7 @@ class WAFTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getPackageGroupInfo.json');
 
-        $mock = $this->getMockBuilder(Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -233,7 +233,7 @@ class WAFTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updatePackageGroup.json');
 
-        $mock = $this->getMockBuilder(Adapter::class)->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $details = [

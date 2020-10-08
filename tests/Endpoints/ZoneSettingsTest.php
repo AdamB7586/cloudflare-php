@@ -27,7 +27,7 @@ class ZoneSettingsTest extends TestCase
         foreach ($this->tests as $method => $value) {
             $response = $this->getPsr7JsonResponseForFixture('Endpoints/get' . $method . 'Setting.json');
 
-            $mock = $this->getMockBuilder(Adapter::class)->getMock();
+            $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
             $mock->method('get')->willReturn($response);
 
             $mock->expects($this->once())->method('get');
@@ -43,7 +43,7 @@ class ZoneSettingsTest extends TestCase
         foreach ($this->tests as $method => $value) {
             $response = $this->getPsr7JsonResponseForFixture('Endpoints/update' . $method . 'Setting.json');
 
-            $mock = $this->getMockBuilder(Adapter::class)->getMock();
+            $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
             $mock->method('patch')->willReturn($response);
 
             $mock->expects($this->once())->method('patch');
