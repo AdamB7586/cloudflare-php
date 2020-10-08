@@ -9,6 +9,7 @@
 namespace tests\Endpoints;
 
 use Cloudflare\API\Adapter\Adapter;
+use Cloudflare\API\Endpoints\User;
 
 class UserTest extends TestCase
 {
@@ -19,7 +20,7 @@ class UserTest extends TestCase
         $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
-        $user = new \Cloudflare\API\Endpoints\User($mock);
+        $user = new User($mock);
         $details = $user->getUserDetails();
 
         $this->assertObjectHasAttribute('id', $details);
@@ -36,7 +37,7 @@ class UserTest extends TestCase
         $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
-        $user = new \Cloudflare\API\Endpoints\User($mock);
+        $user = new User($mock);
         $this->assertEquals('7c5dae5552338874e5053f2534d2767a', $user->getUserID());
         $this->assertEquals('7c5dae5552338874e5053f2534d2767a', $user->getBody()->result->id);
     }
@@ -50,7 +51,7 @@ class UserTest extends TestCase
 
         $mock->expects($this->once())->method('get');
 
-        $user = new \Cloudflare\API\Endpoints\User($mock);
+        $user = new User($mock);
         $this->assertEquals('user@example.com', $user->getUserEmail());
         $this->assertEquals('user@example.com', $user->getBody()->result->email);
     }
@@ -66,7 +67,7 @@ class UserTest extends TestCase
             ->method('patch')
             ->with($this->equalTo('user'), $this->equalTo(['email' => 'user2@example.com']));
 
-        $user = new \Cloudflare\API\Endpoints\User($mock);
+        $user = new User($mock);
         $user->updateUserDetails(['email' => 'user2@example.com']);
         $this->assertEquals('7c5dae5552338874e5053f2534d2767a', $user->getBody()->result->id);
     }

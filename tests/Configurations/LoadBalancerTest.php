@@ -22,7 +22,7 @@ class LoadBalancerTest extends TestCase
             if ($invalid === true) {
                 try {
                     $loadBalancer->{$setFunction}($argument);
-                } catch (ConfigurationsException $e) {
+                } catch (ConfigurationsException $error) {
                     $this->assertNotEquals($argument, $loadBalancer->{$getFunction}());
                 }
             } elseif ($invalid === false) {
