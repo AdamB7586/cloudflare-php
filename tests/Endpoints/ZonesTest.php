@@ -1,11 +1,13 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: junade
  * Date: 06/06/2017
  * Time: 16:01
  */
+
+namespace tests\Endpoints;
+
 use Cloudflare\API\Endpoints\Zones;
 use Cloudflare\API\Adapter\Adapter;
 

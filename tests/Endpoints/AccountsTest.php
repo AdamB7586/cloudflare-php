@@ -4,13 +4,19 @@
  * Date: 01/28/2019
  * Time: 10:00
  */
+
+namespace tests\Endpoints;
+
+use Cloudflare\API\Adapter\Adapter;
+use Cloudflare\API\Endpoints\Accounts;
+
 class AccountsTest extends TestCase
 {
     public function testListZones()
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/listAccounts.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -24,7 +30,7 @@ class AccountsTest extends TestCase
                 ])
             );
 
-        $accounts = new \Cloudflare\API\Endpoints\Accounts($mock);
+        $accounts = new Accounts($mock);
         $result = $accounts->listAccounts(1, 20, 'desc');
 
         $this->assertObjectHasAttribute('result', $result);

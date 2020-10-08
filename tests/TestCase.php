@@ -1,4 +1,6 @@
 <?php
+namespace tests;
+
 use GuzzleHttp\Psr7;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 

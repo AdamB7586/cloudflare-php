@@ -6,11 +6,15 @@
  * Date: 05/09/2017
  * Time: 13:50
  */
+namespace tests\Configurations;
+
+use Cloudflare\API\Configurations\ZoneLockdown;
+
 class ConfigurationsZoneLockdownTest extends TestCase
 {
     public function testGetArray()
     {
-        $configuration = new \Cloudflare\API\Configurations\ZoneLockdown();
+        $configuration = new ZoneLockdown();
         $configuration->addIP('1.2.3.4');
 
         $array = $configuration->getArray();

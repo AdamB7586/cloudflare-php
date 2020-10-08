@@ -1,12 +1,18 @@
 <?php
 
+namespace tests\Endpoints;
+
+use Cloudflare\API\Adapter\Adapter;
+use Cloudflare\API\Endpoints\AccessRules;
+use Cloudflare\API\Configurations\AccessRules as ConfigAccessRules;
+
 class AccessRulesTest extends TestCase
 {
     public function testListRules()
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/listAccessRules.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -20,7 +26,7 @@ class AccessRulesTest extends TestCase
                 ])
             );
 
-        $zones = new \Cloudflare\API\Endpoints\AccessRules($mock);
+        $zones = new AccessRules($mock);
         $result = $zones->listRules('023e105f4ecef8ad9ca31a8372d0c353');
 
         $this->assertObjectHasAttribute('result', $result);
@@ -33,12 +39,12 @@ class AccessRulesTest extends TestCase
 
     public function testCreateRule()
     {
-        $config = new \Cloudflare\API\Configurations\AccessRules();
+        $config = new ConfigAccessRules();
         $config->setIP('1.2.3.4');
 
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/createAccessRule.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('post')->willReturn($response);
 
         $mock->expects($this->once())
@@ -52,7 +58,7 @@ class AccessRulesTest extends TestCase
                 ])
             );
 
-        $rules = new \Cloudflare\API\Endpoints\AccessRules($mock);
+        $rules = new AccessRules($mock);
         $rules->createRule(
             '023e105f4ecef8ad9ca31a8372d0c353',
             'challenge',
@@ -66,7 +72,7 @@ class AccessRulesTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updateAccessRule.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $mock->expects($this->once())
@@ -79,7 +85,7 @@ class AccessRulesTest extends TestCase
                 ])
             );
 
-        $rules = new \Cloudflare\API\Endpoints\AccessRules($mock);
+        $rules = new AccessRules($mock);
         $rules->updateRule(
             '023e105f4ecef8ad9ca31a8372d0c353',
             '92f17202ed8bd63d69a66b86a49a8f6b',
@@ -93,7 +99,7 @@ class AccessRulesTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/deleteAccessRule.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('delete')->willReturn($response);
 
         $mock->expects($this->once())
@@ -105,7 +111,7 @@ class AccessRulesTest extends TestCase
                 ])
             );
 
-        $rules = new \Cloudflare\API\Endpoints\AccessRules($mock);
+        $rules = new AccessRules($mock);
         $rules->deleteRule('023e105f4ecef8ad9ca31a8372d0c353', '92f17202ed8bd63d69a66b86a49a8f6b');
         $this->assertEquals('92f17202ed8bd63d69a66b86a49a8f6b', $rules->getBody()->result->id);
     }

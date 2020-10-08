@@ -1,12 +1,16 @@
 <?php
 
+namespace tests\Endpoints;
+
+use Cloudflare\API\Adapter\Adapter;
+
 class CryptoTest extends TestCase
 {
     public function testGetOpportunisticEncryptionSetting()
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getOpportunisticEncryptionSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -25,7 +29,7 @@ class CryptoTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/getOnionRoutingSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -44,7 +48,7 @@ class CryptoTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updateOpportunisticEncryptionSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $mock->expects($this->once())
@@ -64,7 +68,7 @@ class CryptoTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/updateOnionRoutingSetting.json');
 
-        $mock = $this->getMockBuilder(\Cloudflare\API\Adapter\Adapter::class)->disableOriginalConstructor()->getMock();
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
         $mock->method('patch')->willReturn($response);
 
         $mock->expects($this->once())

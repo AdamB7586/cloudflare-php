@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace tests\Endpoints;
+
 use Cloudflare\API\Adapter\Adapter;
 use Cloudflare\API\Endpoints\ZoneSettings;
 

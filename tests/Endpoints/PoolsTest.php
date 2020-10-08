@@ -1,13 +1,14 @@
 <?php
-
-use Cloudflare\API\Adapter\Adapter;
-use Cloudflare\API\Endpoints\Pools;
-
 /**
  * @author Martijn Smidt <martijn@squeezely.tech>
  * User: HemeraOne
  * Date: 13/05/2019
  */
+
+namespace tests\Endpoints;
+
+use Cloudflare\API\Adapter\Adapter;
+use Cloudflare\API\Endpoints\Pools;
 
 class PoolsTest extends TestCase
 {

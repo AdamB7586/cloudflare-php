@@ -6,6 +6,8 @@
  * Time: 18:41
  */
 
+namespace tests\Configurations;
+
 use Cloudflare\API\Configurations\PageRulesTargets;
 
 class PageRulesTargetTest extends TestCase

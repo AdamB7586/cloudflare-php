@@ -5,12 +5,15 @@
  * Date: 04/09/2017
  * Time: 20:08
  */
+namespace tests\Auth;
+
+use Cloudflare\API\Auth\None;
 
 class NoneTest extends TestCase
 {
     public function testGetHeaders()
     {
-        $auth    = new \Cloudflare\API\Auth\None();
+        $auth    = new None();
         $headers = $auth->getHeaders();
 
         $this->assertEquals([], $headers);

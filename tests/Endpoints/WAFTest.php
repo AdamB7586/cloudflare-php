@@ -1,14 +1,15 @@
 <?php
-
-use Cloudflare\API\Adapter\Adapter;
-use Cloudflare\API\Endpoints\WAF;
-
 /**
  * Created by PhpStorm.
  * User: junade
  * Date: 23/10/2017
  * Time: 13:34
  */
+
+namespace tests\Endpoints;
+
+use Cloudflare\API\Adapter\Adapter;
+use Cloudflare\API\Endpoints\WAF;
 
 class WAFTest extends TestCase
 {

@@ -5,6 +5,8 @@
  * Date: 13/05/2019
  */
 
+namespace tests\Configurations;
+
 use Cloudflare\API\Configurations\ConfigurationsException;
 use Cloudflare\API\Configurations\LoadBalancer;
 
