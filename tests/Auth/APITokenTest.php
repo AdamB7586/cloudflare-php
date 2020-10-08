@@ -5,8 +5,9 @@
  * Date: 30/07/2018
  * Time: 23:25
  */
-namespace tests\Auth;
+namespace Cloudflare\Tests\Auth;
 
+use Cloudflare\Tests\TestCase;
 use Cloudflare\API\Auth\APIToken;
 
 class APITokenTest extends TestCase

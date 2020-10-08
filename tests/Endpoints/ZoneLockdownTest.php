@@ -7,8 +7,9 @@
  * Time: 21:23
  */
 
-namespace tests\Endpoints;
+namespace Cloudflare\Tests\Endpoints;
 
+use Cloudflare\Tests\TestCase;
 use Cloudflare\API\Adapter\Adapter;
 use Cloudflare\API\Endpoints\ZoneLockdown;
 use Cloudflare\API\Configurations\ZoneLockdown as ConfigZoneLockdown;

@@ -5,8 +5,9 @@
  * Date: 13/05/2019
  */
 
-namespace tests\Endpoints;
+namespace Cloudflare\Tests\Endpoints;
 
+use Cloudflare\Tests\TestCase;
 use Cloudflare\API\Adapter\Adapter;
 use Cloudflare\API\Configurations\LoadBalancer;
 use Cloudflare\API\Endpoints\LoadBalancers;

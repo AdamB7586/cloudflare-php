@@ -5,8 +5,9 @@
  * Date: 13/05/2019
  */
 
-namespace tests\Configurations;
+namespace Cloudflare\Tests\Configurations;
 
+use Cloudflare\Tests\TestCase;
 use Cloudflare\API\Configurations\ConfigurationsException;
 use Cloudflare\API\Configurations\Pool;
 

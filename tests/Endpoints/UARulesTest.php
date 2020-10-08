@@ -6,8 +6,9 @@
  * Time: 15:19
  */
 
-namespace tests\Endpoints;
+namespace Cloudflare\Tests\Endpoints;
 
+use Cloudflare\Tests\TestCase;
 use Cloudflare\API\Adapter\Adapter;
 use Cloudflare\API\Endpoints\UARules;
 use Cloudflare\API\Configurations\UARules as ConfigUARules;

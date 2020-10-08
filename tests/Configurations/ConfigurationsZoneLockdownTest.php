@@ -6,8 +6,9 @@
  * Date: 05/09/2017
  * Time: 13:50
  */
-namespace tests\Configurations;
+namespace Cloudflare\Tests\Configurations;
 
+use Cloudflare\Tests\TestCase;
 use Cloudflare\API\Configurations\ZoneLockdown;
 
 class ConfigurationsZoneLockdownTest extends TestCase

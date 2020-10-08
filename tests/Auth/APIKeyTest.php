@@ -5,8 +5,9 @@
  * Date: 13/01/2017
  * Time: 17:15
  */
-namespace tests\Auth;
+namespace Cloudflare\Tests\Auth;
 
+use Cloudflare\Tests\TestCase;
 use Cloudflare\API\Auth\APIKey;
 
 class APIKeyTest extends TestCase

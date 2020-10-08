@@ -6,8 +6,9 @@
  * Date: 19/09/2017
  * Time: 15:24
  */
-namespace tests\Configurations;
+namespace Cloudflare\Tests\Configurations;
 
+use Cloudflare\Tests\TestCase;
 use Cloudflare\API\Configurations\UARules;
 
 class ConfigurationsUARulesTest extends TestCase

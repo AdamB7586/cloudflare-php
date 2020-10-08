@@ -26,9 +26,9 @@
     }
   },
   "autoload-dev": {
-    "classmap": [
-        "tests/"
-    ]
+    "psr-4": {
+      "Cloudflare\\Tests\\": "tests/"
+    }
   },
   "config": {
     "preferred-install": "dist",

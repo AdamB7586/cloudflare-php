@@ -5,8 +5,9 @@
  * Date: 13/05/2019
  */
 
-namespace tests\Endpoints;
+namespace Cloudflare\Tests\Endpoints;
 
+use Cloudflare\Tests\TestCase;
 use Cloudflare\API\Adapter\Adapter;
 use Cloudflare\API\Endpoints\Pools;
 use Cloudflare\API\Configurations\Pool;

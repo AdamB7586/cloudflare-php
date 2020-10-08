@@ -5,8 +5,9 @@
  * Date: 04/09/2017
  * Time: 20:08
  */
-namespace tests\Auth;
+namespace Cloudflare\Tests\Auth;
 
+use Cloudflare\Tests\TestCase;
 use Cloudflare\API\Auth\None;
 
 class NoneTest extends TestCase

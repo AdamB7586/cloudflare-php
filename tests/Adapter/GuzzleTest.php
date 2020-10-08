@@ -6,8 +6,9 @@
  * Time: 23:35
  */
 
-namespace tests\Adapter;
+namespace Cloudflare\Tests\Adapter;
 
+use Cloudflare\Tests\TestCase;
 use GuzzleHttp\Psr7\Response;
 use Cloudflare\API\Auth\Auth;
 use Cloudflare\API\Adapter\Guzzle;

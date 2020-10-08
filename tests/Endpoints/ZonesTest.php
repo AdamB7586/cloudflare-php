@@ -6,8 +6,9 @@
  * Time: 16:01
  */
 
-namespace tests\Endpoints;
+namespace Cloudflare\Tests\Endpoints;
 
+use Cloudflare\Tests\TestCase;
 use Cloudflare\API\Endpoints\Zones;
 use Cloudflare\API\Adapter\Adapter;
 

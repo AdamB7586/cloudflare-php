@@ -5,8 +5,9 @@
  * Date: 13/01/2017
  * Time: 18:03
  */
-namespace tests\Auth;
+namespace Cloudflare\Tests\Auth;
 
+use Cloudflare\Tests\TestCase;
 use Cloudflare\API\Auth\UserServiceKey;
 
 class UserServiceKeyTest extends TestCase
