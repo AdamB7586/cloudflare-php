@@ -32,6 +32,25 @@ class TLSTest extends TestCase
 
         $this->assertEquals('off', $result);
     }
+    
+    public function testgetTLS13()
+    {
+        $response = $this->getPsr7JsonResponseForFixture('Endpoints/getTLS13Setting.json');
+
+        $mock = $this->getMockBuilder(Adapter::class)->disableOriginalConstructor()->getMock();
+        $mock->method('get')->willReturn($response);
+
+        $mock->expects($this->once())
+            ->method('get')
+            ->with(
+                $this->equalTo('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/settings/tls_1_3')
+            );
+        
+        $tlsMock = new TLS($mock);
+        $result = $tlsMock ->getTLS13('c2547eb745079dac9320b638f5e225cf483cc5cfdda41');
+
+        $this->assertEquals('off', $result);
+    }
 
     public function testEnableTLS13()
     {

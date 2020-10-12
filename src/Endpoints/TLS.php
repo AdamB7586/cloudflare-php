@@ -36,6 +36,23 @@ class TLS implements API
         }
         return false;
     }
+    
+    /**
+     * Gets the current TLS 1.3 setting
+     * @param string $zoneID The ID of the zone
+     * @return string|false
+     */
+    public function getTLS13($zoneID)
+    {
+        $return = $this->adapter->get(
+            'zones/' . $zoneID . '/settings/tls_1_3',
+        );
+        $body   = json_decode($return->getBody());
+        if (isset($body->success) && $body->success == true) {
+            return $body->result;
+        }
+        return false;
+    }
 
     /**
      * Enable TLS 1.3 for the zone

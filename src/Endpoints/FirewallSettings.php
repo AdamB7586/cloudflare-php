@@ -84,6 +84,24 @@ class FirewallSettings implements API
         }
         return false;
     }
+    
+    /**
+     * Gets the bot management settings
+     *
+     * @param string $zoneID The ID of the zone
+     * @return array|false
+     */
+    public function getBotManagementSetting(string $zoneID)
+    {
+        $return = $this->adapter->get(
+            'zones/' . $zoneID . '/bot_management'
+        );
+        $body = json_decode($return->getBody());
+        if (isset($body->result)) {
+            return $body->result;
+        }
+        return false;
+    }
 
     /**
      * Update the Security Level setting for the zone
